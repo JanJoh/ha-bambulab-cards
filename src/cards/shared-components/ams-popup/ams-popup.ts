@@ -27,7 +27,7 @@ interface FilamentData {
   [key: string]: FilamentInfo | undefined;
 }
 
-@customElement("ams-popup")
+@customElement("jj-ams-popup")
 export class AMSPopup extends LitElement {
   @property({ type: String }) entity_id;
   @property({ type: Boolean }) controlBlocked;

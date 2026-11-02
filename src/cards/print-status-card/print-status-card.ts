@@ -422,16 +422,16 @@ export class PrintStatusCard extends EntityProvider {
   render() {
     if (this._style == "simple") {
       return html`
-        <a1-screen-card
+        <jj-a1-screen-card
           .coverImage=${this._coverImageUrl}
           .showVideoFeed=${this._default_to_camera}
           _device_id=${this._device_id}
           @video-toggled=${this._onVideoToggled}
-        ></a1-screen-card>
+        ></jj-a1-screen-card>
       `;
     } else if (this._style == "minimal") {
       return html`
-        <a1-screen-card
+        <jj-a1-screen-card
           .minimal=${true}
           .coverImage=${this._coverImageUrl}
           .showPrinterName=${this._show_printer_name}
@@ -440,7 +440,7 @@ export class PrintStatusCard extends EntityProvider {
           .showCoverPosition=${this._cover_position}
           .showCameraPosition=${this._camera_position}
           _device_id=${this._device_id}
-        ></a1-screen-card>
+        ></jj-a1-screen-card>
       `;
     } else {
       return html`

@@ -1,4 +1,4 @@
-export const PREFIX_NAME = "ha-bambulab";
+export const PREFIX_NAME = "ha-bambulab-jj";
 export const INTEGRATION_DOMAIN = "bambu_lab";
 export const MANUFACTURER = "Bambu Lab";
 export const PRINTER_MODELS = [

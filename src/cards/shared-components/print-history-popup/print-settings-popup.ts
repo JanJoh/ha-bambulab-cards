@@ -30,7 +30,7 @@ interface PrintSettings {
   ams_mapping: string;
 }
 
-@customElement("print-settings-popup")
+@customElement("jj-print-settings-popup")
 export class PrintSettingsPopup extends LitElement {
 
   @property() public device_id: string = "";

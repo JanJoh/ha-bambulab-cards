@@ -5,7 +5,7 @@ import { hassContext } from "../../../utils/context";
 import { consume } from "@lit/context";
 import "../ams-popup/ams-popup";
 
-@customElement("ha-bambulab-spool")
+@customElement("jj-ha-bambulab-spool")
 export class Spool extends LitElement {
   @consume({ context: hassContext, subscribe: true })
   private hass;
@@ -79,7 +79,7 @@ export class Spool extends LitElement {
     const isActive = this.hass.states[this.entity_id]?.attributes.active ||
                      this.hass.states[this.entity_id]?.attributes.in_use
     return html`
-      <ams-popup .entity_id=${this.entity_id} .controlBlocked=${this.controlBlocked}>
+      <jj-ams-popup .entity_id=${this.entity_id} .controlBlocked=${this.controlBlocked}>
         <div class="ha-bambulab-spool-card-container">
           <div
             class="ha-bambulab-spool-card-holder ${isActive ? "active" : ""}
@@ -132,7 +132,7 @@ export class Spool extends LitElement {
               </div>`
             : nothing}
         </div>
-      </ams-popup>
+      </jj-ams-popup>
     `;
   }
 

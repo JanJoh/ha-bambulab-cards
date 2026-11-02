@@ -6,7 +6,7 @@ import "../components/info-bar/info-bar";
 import { entitiesContext } from "../../../utils/context";
 import { consume } from "@lit/context";
 
-@customElement("vector-ams-card")
+@customElement("jj-vector-ams-card")
 export class VectorAmsCard extends LitElement {
   @property() public showType;
   @property() public spoolAnimReflection;
@@ -26,12 +26,12 @@ export class VectorAmsCard extends LitElement {
     return html`
       <ha-card class="ha-bambulab-vector-ams-card">
         <div class="v-wrapper">
-          <info-bar></info-bar>
+          <jj-info-bar></jj-info-bar>
           <div class="v-ams-container">
             <div class="v-spools-wrapper">
               ${this._entities?.spools?.map(
                 (spool: { entity_id: string }) => html`
-                  <ha-bambulab-spool
+                  <jj-ha-bambulab-spool
                     class="${classType}"
                     .key="${spool.entity_id}"
                     .entity_id="${spool.entity_id}"
@@ -40,7 +40,7 @@ export class VectorAmsCard extends LitElement {
                     .show_type=${this.showType}
                     .spool_anim_reflection=${this.spoolAnimReflection}
                     .spool_anim_wiggle=${this.spoolAnimWiggle}
-                  ></ha-bambulab-spool>
+                  ></jj-ha-bambulab-spool>
                 `
               )}
             </div>

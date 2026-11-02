@@ -587,7 +587,7 @@ export default css`
     flex: 1;
   }
 
-  .spool-container ha-bambulab-spool {
+  .spool-container jj-ha-bambulab-spool {
     width: 25%;
     min-width: 25%;
     max-width: 25%;
@@ -595,7 +595,7 @@ export default css`
     height: 100%;
   }
 
-  .spool-container ha-bambulab-spool:last-child {
+  .spool-container jj-ha-bambulab-spool:last-child {
     padding-right: 0;
   }
 

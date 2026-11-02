@@ -25,7 +25,7 @@ interface PrinterOption {
   name: string;
 }
 
-@customElement("print-history-popup")
+@customElement("jj-print-history-popup")
 export class PrintHistoryPopup extends LitElement {
   @property() public device_serial: string = "";
   @property() public device_id: string = "";
@@ -55,7 +55,7 @@ export class PrintHistoryPopup extends LitElement {
   private _compatiblePrinters = new Set<string>();
   private _printerOptions: PrinterOption[] = [];
 
-  @query('print-settings-popup') private _overlay!: PrintSettingsPopup;
+  @query('jj-print-settings-popup') private _overlay!: PrintSettingsPopup;
 
   private _model: string = "";
 
@@ -530,13 +530,13 @@ export class PrintHistoryPopup extends LitElement {
           `}
         </div>
       </div>    
-      <print-settings-popup
+      <jj-print-settings-popup
         style="display: none;"
         .hass=${this._hass} 
         .device_serial=${this.device_serial} 
         .device_id=${this.device_id} 
         @close=${this.hide}>
-      </print-settings-popup>
+      </jj-print-settings-popup>
     `;
   }
 }

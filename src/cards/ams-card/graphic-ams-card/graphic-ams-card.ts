@@ -10,7 +10,7 @@ import "../../shared-components/ams-popup/ams-popup";
 import { entitiesContext, hassContext } from "../../../utils/context";
 import { consume } from "@lit/context";
 
-@customElement("graphic-ams-card")
+@customElement("jj-graphic-ams-card")
 export class GraphicAmsCard extends LitElement {
   @consume({ context: hassContext, subscribe: true })
   private hass; 
@@ -32,12 +32,12 @@ export class GraphicAmsCard extends LitElement {
 
     return html` <ha-card class="card">
       <div class="v-wrapper">
-        <info-bar></info-bar>
+        <jj-info-bar></jj-info-bar>
         <div class="ams-container">
           <img src=${image} alt="" />
             ${this._entities?.spools.map(
               (spool, i) => html`
-                <ams-popup .entity_id=${spool.entity_id}>
+                <jj-ams-popup .entity_id=${spool.entity_id}>
                   <div class="spool slot-${i + 1}-${model}">
                     <div class="spool-info">
                       <span
@@ -67,7 +67,7 @@ export class GraphicAmsCard extends LitElement {
                       >
                     </div>
                   </div>
-                </ams-popup>
+                </jj-ams-popup>
               `
             )}
         </div>

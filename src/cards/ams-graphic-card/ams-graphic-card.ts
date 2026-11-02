@@ -276,10 +276,10 @@ export class AmsGraphicCard extends LitElement {
      is not loaded it falls back to the native more-info dialog */
   private _openFilamentPopup(entityId: string): void {
     if (!entityId) return;
-    if (customElements.get("ams-popup")) {
+    if (customElements.get("jj-ams-popup")) {
       let p = this._popupEl;
       if (!p || !p.isConnected) {
-        p = document.createElement("ams-popup");
+        p = document.createElement("jj-ams-popup");
         p.style.cssText = "position:fixed;left:-200vw;top:0;width:1px;height:1px";
         document.body.appendChild(p);
         this._popupEl = p;

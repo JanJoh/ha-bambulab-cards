@@ -8,6 +8,8 @@ on:
 jobs:
   build_release:
     name: Build frontend release
+    # Publishes into the integration repo; the JanJoh fork releases by hand instead.
+    if: github.repository == 'greghesp/ha-bambulab-cards'
     runs-on: ubuntu-latest
     permissions:
       contents: write

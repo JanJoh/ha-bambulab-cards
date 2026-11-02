@@ -169,7 +169,7 @@ export class AMS_CARD extends LitElement {
 
   render() {
     if (this._style == "graphic") {
-      return html` <graphic-ams-card /> `;
+      return html` <jj-graphic-ams-card /> `;
     } else {
       // Custom remaining sensors are configured per tray; key them by the tray's entity.
       const customRemaining = {};
@@ -184,7 +184,7 @@ export class AMS_CARD extends LitElement {
         }
       });
       return html`
-        <vector-ams-card
+        <jj-vector-ams-card
           .customRemaining=${customRemaining}
           .customLabel=${customLabel}
           .showType=${this._showType}

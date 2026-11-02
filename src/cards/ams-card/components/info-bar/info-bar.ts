@@ -5,7 +5,7 @@ import styles from "./info-bar.styles";
 import { consume } from "@lit/context";
 import { showInfoBarContext, hassContext, entitiesContext } from "../../../../utils/context";
 
-@customElement("info-bar")
+@customElement("jj-info-bar")
 export class InfoBar extends LitElement {
   @consume({ context: showInfoBarContext, subscribe: true })
   private _infoBar;

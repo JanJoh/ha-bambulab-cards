@@ -14,7 +14,7 @@ interface PrintableObject {
   to_skip: boolean;
 }
 
-@customElement("skip-objects")
+@customElement("jj-skip-objects")
 export class SkipObjects extends LitElement {
   static styles = styles;
 
@@ -177,7 +177,7 @@ export class SkipObjects extends LitElement {
   }
 
   #initializeCanvas() {
-    const confirmationPrompt = this.shadowRoot?.querySelector("confirmation-prompt");
+    const confirmationPrompt = this.shadowRoot?.querySelector("jj-confirmation-prompt");
     if (!confirmationPrompt) {
       return;
     }
@@ -412,7 +412,7 @@ export class SkipObjects extends LitElement {
 
   render() {
     return html`
-      <confirmation-prompt
+      <jj-confirmation-prompt
         title="Skip Objects"
         .body=${this.#body()}
         primaryActionText="Skip"
@@ -422,7 +422,7 @@ export class SkipObjects extends LitElement {
         .onClose=${this.onClose}
         .styles=${styles}
         @content-ready=${this.#handleContentReady}
-      ></confirmation-prompt>
+      ></jj-confirmation-prompt>
     `;
   }
 }

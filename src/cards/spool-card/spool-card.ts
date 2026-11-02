@@ -85,10 +85,10 @@ export class SpoolCard extends LitElement {
     return html`
       <ha-card class="card">
         <div class="v-wrapper">
-          <info-bar></info-bar>
+          <jj-info-bar></jj-info-bar>
           <div class="v-ams-container">
             <div class="v-spools-wrapper">
-              <ha-bambulab-spool
+              <jj-ha-bambulab-spool
                 .key="${this._spoolEntityId}"
                 .entity_id="${this._spoolEntityId}"
                 .tag_uid=${0} // Force it to be 'unknown' to not show the remaining percentage
@@ -96,7 +96,7 @@ export class SpoolCard extends LitElement {
                 .spoolAnimReflection=${this._spoolAnimReflection}
                 .spoolAnimWiggle=${this._spoolAnimWiggle}
                 .label_entity=${this._customLabel}
-              ></ha-bambulab-spool>
+              ></jj-ha-bambulab-spool>
             </div>
           </div>
         </div>

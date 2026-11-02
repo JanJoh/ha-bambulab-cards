@@ -43,7 +43,7 @@ interface AMS {
 
 const processedCoverImages = new Map<string, { source: string; image: string }>();
 
-@customElement("a1-screen-card")
+@customElement("jj-a1-screen-card")
 export class A1ScreenCard extends LitElement {
   @property() public coverImage;
   @property() public _device_id;
@@ -72,7 +72,7 @@ export class A1ScreenCard extends LitElement {
   @state()
   public _deviceEntities;
 
-  @query('print-history-popup')
+  @query('jj-print-history-popup')
   private fileCachePopup!: HTMLElement;
 
   @query("#cover-image") coverImageElement: HTMLImageElement | undefined;
@@ -592,7 +592,7 @@ export class A1ScreenCard extends LitElement {
     return html`
       ${this.confirmation.show
         ? html`
-            <confirmation-prompt
+            <jj-confirmation-prompt
               .title=${this.confirmation.title}
               .body=${this.confirmation.body}
               .primaryActionText="Confirm"
@@ -601,15 +601,15 @@ export class A1ScreenCard extends LitElement {
               .primaryAction=${this.#handleConfirm.bind(this)}
               .secondaryAction=${this.#handleDismiss.bind(this)}
               .onClose=${this.#handleDismiss.bind(this)}
-            ></confirmation-prompt>
+            ></jj-confirmation-prompt>
           `
         : nothing}
       ${this.showSkipObjects
-        ? html`<skip-objects
+        ? html`<jj-skip-objects
             secondaryAction=${this.#handleSkipObjectsDismiss.bind(this)}
             onClose=${this.#handleSkipObjectsDismiss.bind(this)}
             _device_id=${this._device_id}
-          ></skip-objects>`
+          ></jj-skip-objects>`
         : nothing}
       ${this.minimal
         ? this.#renderMinimal()
@@ -621,12 +621,12 @@ export class A1ScreenCard extends LitElement {
                   this.page === Page.Ams ? this.#renderAmsPage() : ''}
               </div>
             </ha-card>
-            <print-history-popup
+            <jj-print-history-popup
               .device_id=${this._device_id}
               .device_serial=${this.#getDeviceSerial()}
               .file_type=${"3mf"}
               .controlBlocked=${this.#isMqttEncryptionEnabled() || this.#isHybridMqttConnection()}
-            ></print-history-popup>
+            ></jj-print-history-popup>
           `}
     `;
   }
@@ -1079,7 +1079,7 @@ export class A1ScreenCard extends LitElement {
       <div class="spool-container">
         ${this._amsList[this._selectedAmsIndex]?.spools.map(
           spool => html`
-            <ha-bambulab-spool
+            <jj-ha-bambulab-spool
               .key="${spool}"
               .entity_id="${spool}"
               .tag_uid=${0}
@@ -1087,7 +1087,7 @@ export class A1ScreenCard extends LitElement {
               .spool_anim_reflection=${false}
               .spool_anim_wiggle=${false}
               .controlBlocked=${!this.#isMqttEncryptionEnabled()}
-            ></ha-bambulab-spool>
+            ></jj-ha-bambulab-spool>
           `
         )}
       </div>

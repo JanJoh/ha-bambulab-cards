@@ -202,6 +202,7 @@ export default css`
   }
 
   .ha-bambulab-spool-info {
+    flex-direction: column;
     background: #444444;
     padding: 0px 10px;
     border-radius: 0.5em;
@@ -216,6 +217,15 @@ export default css`
     text-align: center;
     line-height: 1em;
     overflow: ellipsis;
+  }
+
+  .ha-bambulab-spool-label {
+    font-size: smaller;
+    opacity: 0.85;
+    margin-top: 2px;
+    max-width: 100%;
+    overflow: hidden;
+    text-overflow: ellipsis;
   }
 
   .ha-bambulab-spool-modal-container {

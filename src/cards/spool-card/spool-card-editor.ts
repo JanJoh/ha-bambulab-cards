@@ -65,6 +65,11 @@ export class SpoolCardEditor extends LitElement {
       selector: { boolean: true },
       default: true,
     },
+    {
+      name: "custom_label",
+      label: "Custom Label Entity",
+      selector: { entity: {} },
+    },
   ]);
 
   render() {

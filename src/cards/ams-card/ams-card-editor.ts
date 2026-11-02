@@ -69,6 +69,11 @@ export class AmsCardEditor extends LitElement {
         label: `Custom Remaining Sensor (Tray ${n})`,
         selector: { entity: { domain: "sensor" } },
       })),
+      ...[1, 2, 3, 4].map((n) => ({
+        name: `custom_label_${n}`,
+        label: `Custom Label Entity (Tray ${n})`,
+        selector: { entity: {} },
+      })),
     ] : ""),
     {
       name: "ams",

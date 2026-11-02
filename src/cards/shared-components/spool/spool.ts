@@ -15,6 +15,7 @@ export class Spool extends LitElement {
   @property({ type: Boolean }) public spool_anim_wiggle: boolean = true;
   @property({ type: String })  public entity_id!: string;
   @property({ type: String })  public remaining_entity?: string;
+  @property({ type: String })  public label_entity?: string;
   @property({ type: Number })  private remainHeight = 95;
   @property({ type: Boolean }) public controlBlocked: boolean = true;
   @property() private resizeObserver: ResizeObserver | null = null;
@@ -116,11 +117,16 @@ export class Spool extends LitElement {
               <div class="ha-bambulab-spool-side"></div>
             </div>
           </div>
-          ${this.show_type
+          ${this.show_type || this.labelText()
             ? html` <div class="ha-bambulab-spool-info-container">
                 <div class="ha-bambulab-spool-info-wrapper">
                   <div class="ha-bambulab-spool-info">
-                    ${this.hass.states[this.entity_id]?.attributes.name}
+                    ${this.show_type
+                      ? html`<span>${this.hass.states[this.entity_id]?.attributes.name}</span>`
+                      : nothing}
+                    ${this.labelText()
+                      ? html`<span class="ha-bambulab-spool-label">${this.labelText()}</span>`
+                      : nothing}
                   </div>
                 </div>
               </div>`
@@ -128,6 +134,16 @@ export class Spool extends LitElement {
         </div>
       </ams-popup>
     `;
+  }
+
+  // A custom label entity (e.g. which Spoolman spool is loaded) is shown under the
+  // filament type. Like the remaining sensor it follows the spool, not the slot, so an
+  // empty tray never shows one; neither do unknown/unavailable or placeholder states.
+  labelText(): string | undefined {
+    if (!this.label_entity || this.hass.states[this.entity_id]?.attributes?.empty) return undefined;
+    const state = this.hass.states[this.label_entity]?.state?.trim();
+    if (!state || ["unknown", "unavailable", "-", "\u2013"].includes(state)) return undefined;
+    return state;
   }
 
   // A custom remaining sensor (e.g. grams from Spoolman or Bambuddy) wins while it

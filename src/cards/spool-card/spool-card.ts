@@ -29,6 +29,7 @@ export class SpoolCard extends LitElement {
   @property() public _showType;
   @property() public _spoolAnimReflection;
   @property() public _spoolAnimWiggle;
+  @property() public _customLabel?: string;
 
   @provide({ context: hassContext })
   @state()
@@ -68,6 +69,7 @@ export class SpoolCard extends LitElement {
     this._showType = config.show_type;
     this._spoolAnimReflection = (config.spool_anim_reflection == undefined) ? true : config.spool_anim_reflection;
     this._spoolAnimWiggle = (config.spool_anim_wiggle == undefined) ? true : config.spool_anim_wiggle;
+    this._customLabel = config.custom_label || undefined;
 
     this._showInfoBar["title"] = config.subtitle === "" ? nothing : config.subtitle;
     this._showInfoBar["active"] = config.show_info_bar ? true : false;
@@ -93,6 +95,7 @@ export class SpoolCard extends LitElement {
                 .show_type=${this._showType}
                 .spoolAnimReflection=${this._spoolAnimReflection}
                 .spoolAnimWiggle=${this._spoolAnimWiggle}
+                .label_entity=${this._customLabel}
               ></ha-bambulab-spool>
             </div>
           </div>
